@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum</title>
+</head>
+<body>
+    <script>
+        var array = prompt("Enter values:");
+        var nums = array.split(" ");
+        var sum = 0;
+        document.write("Entered values: " + nums + "<br>");
+        for(var i = 0; i < nums.length; i++){
+            sum += parseInt(nums[i]);
+        }
+        document.write("Sum: " + sum);
+    </script>
+</body>
+</html>
