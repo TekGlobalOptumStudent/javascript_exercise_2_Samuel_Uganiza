@@ -1,0 +1,21 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+</head>
+<body>
+    <script>
+        var expressions = prompt("Enter values:");
+        document.write("Entered expressions:<br>");
+        var expressions_list = expressions.split(";");
+        for(var i = 0; i < expressions_list.length; i++){
+            document.write(expressions_list[i] + "<br>");
+        }
+        document.write("<br>Sums:<br>");
+        for(var i = 0; i < expressions_list.length - 1; i++){
+            document.write(eval(expressions_list[i]) + "<br>");
+        }
+    </script>
+</body>
+</html>
