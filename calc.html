@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calc</title>
+</head>
+<body>
+    <script>
+        var expression = prompt("Enter values:");
+        document.write("Entered expression: " + expression + "<br>");
+        var num1 = expression.split(/\s*[\+\-]\s*/, 1);
+        var rest = expression.substring(num1.length, expression.length).match(/\s*[\+\-]\s*\d+/g);
+        var sum = parseInt(num1[0]);
+        for(var i = 0; i < rest.length; i++){
+            var trimmed = rest[i].trim();
+            var sign = trimmed.charAt(0);
+            var num = parseInt(trimmed.substring(1, trimmed.length));
+            if(sign == "+"){
+                sum += num;
+            } else {
+                sum -= num;
+            }
+        }
+        document.write("Sum: " + sum);
+    </script>
+</body>
+</html>
