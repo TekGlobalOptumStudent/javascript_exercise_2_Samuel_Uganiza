@@ -13,8 +13,11 @@
             document.write(expressions_list[i] + "<br>");
         }
         document.write("Sums:<br>");
-        for(var i = 0; i < expressions_list.length - 1; i++){
+        for(var i = 0; i < expressions_list.length; i++){
             var expression = expressions_list[i].trim();
+            if(expression.length == 0){
+                break;
+            }
             var num1 = expression.split(/\s*[\+\-]\s*/, 1);
             var rest = expression.substring(num1.length, expression.length).match(/\s*[\+\-]\s*\d+/g);
             var sum = parseInt(num1[0]);
