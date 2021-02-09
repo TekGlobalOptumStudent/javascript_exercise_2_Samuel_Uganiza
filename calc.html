@@ -6,7 +6,7 @@
 </head>
 <body>
     <script>
-        var expression = prompt("Enter values:");
+        var expression = prompt("Enter expression:");
         document.write("Entered expression: " + expression + "<br>");
         var num1 = expression.split(/\s*[\+\-]\s*/, 1);
         var rest = expression.substring(num1.length, expression.length).match(/\s*[\+\-]\s*\d+/g);
@@ -15,11 +15,7 @@
             var trimmed = rest[i].trim();
             var sign = trimmed.charAt(0);
             var num = parseInt(trimmed.substring(1, trimmed.length));
-            if(sign == "+"){
-                sum += num;
-            } else {
-                sum -= num;
-            }
+            sum = sign == "+" ? sum + num : sum - num;
         }
         document.write("Sum: " + sum);
     </script>

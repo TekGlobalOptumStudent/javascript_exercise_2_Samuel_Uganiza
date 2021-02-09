@@ -6,16 +6,35 @@
 </head>
 <body>
     <script>
-        var expressions = prompt("Enter values:");
+        var expressions = prompt("Enter expressions:");
         document.write("Entered expressions:<br>");
         var expressions_list = expressions.split(";");
         for(var i = 0; i < expressions_list.length; i++){
             document.write(expressions_list[i] + "<br>");
         }
-        document.write("<br>Sums:<br>");
+        document.write("Sums:<br>");
+        for(var i = 0; i < expressions_list.length - 1; i++){
+            var expression = expressions_list[i].trim();
+            var num1 = expression.split(/\s*[\+\-]\s*/, 1);
+            var rest = expression.substring(num1.length, expression.length).match(/\s*[\+\-]\s*\d+/g);
+            var sum = parseInt(num1[0]);
+            if(rest != null){
+                for(var j = 0; j < rest.length; j++){
+                    var trimmed = rest[j].trim();
+                    var sign = trimmed.charAt(0);
+                    var num = parseInt(trimmed.substring(1, trimmed.length));
+                    sum = sign == "+" ? sum + num : sum - num;
+                }
+                document.write(sum + "<br>");
+            } else {
+                document.write(num1 + "<br>");
+            }
+        }
+        /* The cheat-y way
         for(var i = 0; i < expressions_list.length - 1; i++){
             document.write(eval(expressions_list[i]) + "<br>");
         }
+        */
     </script>
 </body>
 </html>
